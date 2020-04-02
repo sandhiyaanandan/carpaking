@@ -1,0 +1,1 @@
+export const TOTAL_AVAILABLE_SPACE = 25;

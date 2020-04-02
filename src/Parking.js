@@ -1,25 +1,41 @@
-import React, {useState} from 'react';
+import React from 'react';
+import {TOTAL_AVAILABLE_SPACE} from './constants'
 import Login from './login';
 function Parking()
 {
-	const TOTAL_AVAILABLE_SPACE = 25;
 	let parkingBox = [];
 	let no_available_space = TOTAL_AVAILABLE_SPACE;
-	const [selected, setSelected] = useState(true);
+//	const [selected, setSelected] = useState(true);
 	const isParkingSelected=() => {
 		let isCarParked = document.activeElement.style;
 		if(isCarParked.backgroundColor === "" || isCarParked.backgroundColor === "white") {
 			isCarParked.backgroundColor = "yellow";
-			if( no_available_space > 0 ) no_available_space--;
+			if( no_available_space > 0 ) {
+			} no_available_space--;
 		} else {
-			isCarParked.backgroundColor = "white";
-			if( no_available_space >= 0 ) no_available_space++;
+			//take carnumber from user and check in local storage...if available change color to white
+			var regCarNumber = localStorage.getItem("currentUserCarNumber");
+			var userCarNumber  = prompt("Please enter your carNumber");
+			if ( regCarNumber === userCarNumber )
+			{
+				alert("Thank you for using Car Parking..");
+				isCarParked.backgroundColor = "white";
+				if( no_available_space >= 0 ) {
+					no_available_space++;
+				}
+			} else {
+				alert("Try again. Please provide registered carNumber");
+				//go back to login page
+			}
 		}
 		localStorage.setItem('no_available_space', no_available_space);
+		//go back to login page
 	}
+
+
 	for( let space = 0; space < TOTAL_AVAILABLE_SPACE; space++)
 	{
-		if( space % 5 == 0 )
+		if( space % 5 === 0 )
 			parkingBox.push(<br/>);
 		parkingBox.push(<input type="button" className="box" onClick={isParkingSelected}/>);
 	}

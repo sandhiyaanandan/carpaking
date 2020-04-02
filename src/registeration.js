@@ -1,10 +1,7 @@
 import React from 'react';
 import Login from './login'; 
-import App from './App';
 import {Input, Div} from './StyledComponents';
-import PropTypes from 'prop-types';
-import Parking from './Parking';
-import {withRouter} from 'react-router';
+import propTypes from 'prop-types';
 class Registeration extends React.Component
 {
 	constructor(props)
@@ -23,12 +20,13 @@ class Registeration extends React.Component
 		{
 			//setFlag(!flag); 
 		}
-
-		//var obj = {userName:this.state.userName, password:this.state.password, carName: this.state.carName, CarNumber:this.state.CarNumber};
-		this.state.details.push(this.state.data);
+		console.log("==sr=name="+this.state.userName+"=pwd="+this.state.password);
+		console.log("==sr=name="+this.state.carName+"=pwd="+this.state.carNumber);
+var obj = {userName:this.state.userName, password:this.state.password, carName: this.state.carName, carNumber:this.state.carNumber};
+		this.state.details.push(obj);
 		localStorage.setItem('regDetails',JSON.stringify(this.state.details));
 		//localStorage.setItem('no_available_space', no_available_space);
-
+		document.getElementById("regForm").reset();
 	}
 
 	setUserName(e){
@@ -49,20 +47,23 @@ class Registeration extends React.Component
 			<div style={{backgroundColor:'green'}}>
 				<div className="loginBox" style={{backgroundColor:'blue', border: '10px solid blue'}}>
 					<h2 className="pageHeader">Register</h2>
+					<form id="regForm">
 						<Input type="text" style={{marginTop:'10%'}} onChange={this.setUserName} placeholder="Enter User Name"/>
 						<Input type="password" style={{marginTop:'10%'}} onChange={this.setPassword} placeholder="Enter Password"/>
 						<Input type="text" style={{marginTop:'10%'}} onChange={this.setCarName} placeholder="Enter Carname"/>
 						<Input type="text" style={{marginTop:'10%'}} onChange={this.setCarNumber} placeholder="Enter CarNumber"/>
 						<Input type="button" className="submitButton" style={{marginTop:'20%'}} value="Register" onClick={this.submitRegister}/>
+					</form>
 				</div>
 			</div>
+			<Login/>
 	</Div>)
 	}
 }
 Registeration.propTypes={
-  	userName:PropTypes.string.isRequired,
-  	pasword:PropTypes.string.isRequired,
-  	carName:PropTypes.string.isRequired,
-  	carNumber:PropTypes.string.isRequired
+  	userName:propTypes.string.isRequired,
+  	pasword:propTypes.string.isRequired,
+  	carName:propTypes.string.isRequired,
+  	carNumber:propTypes.string.isRequired
 }	
-export default withRouter(Registeration);
+export default Registeration;
