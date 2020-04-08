@@ -4,11 +4,11 @@ body
 }
 .parkingArea
 {
-  background-color:black;
-  width:40%;
+  background-color: black;
+  width: 40%;
   height: 100%;
-  margin-left:30%;
-  padding-left:2%;
+  margin-left: 30%;
+  padding-left: 2%;
 
 }
 .loginBox
@@ -28,9 +28,9 @@ body
 }
 .pageHeader
 {
-  margin-top:0%;
-  text-align:center;
-  margin-left:5%;
+  margin-top: 0%;
+  text-align: center;
+  margin-left: 5%;
 }
 .header
 {
@@ -39,7 +39,7 @@ body
   background-color: blue;
   color: white;
   width: 100%;
-  margin-bottom:0%;
+  margin-bottom: 0%;
 }
 
 .content
@@ -49,8 +49,8 @@ body
 
 .box
 {
-  width:15%;
-  height:50px;
+  width: 15%;
+  height: 50px;
   border: 2% solid white;
   background-color: white;
   margin: 2%;
@@ -58,7 +58,7 @@ body
 }
 
 ul{
-  list-style:none; 
+  list-style: none; 
   padding-bottom: 2%;
-  margin-left:0px;
+  margin-left: 0px;
 }

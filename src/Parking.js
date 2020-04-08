@@ -1,6 +1,6 @@
 import React from 'react';
 import {TOTAL_AVAILABLE_SPACE} from './constants'
-import Login from './login';
+import Login from './Login';
 function Parking()
 {
 	let parkingBox = [];
@@ -25,11 +25,11 @@ function Parking()
 				}
 			} else {
 				alert("Try again. Please provide registered carNumber");
-				//go back to login page
+				this.props.history.push("/Login");
 			}
 		}
 		localStorage.setItem('no_available_space', no_available_space);
-		//go back to login page
+			this.props.history.push("/Login");
 	}
 
 
@@ -39,12 +39,11 @@ function Parking()
 			parkingBox.push(<br/>);
 		parkingBox.push(<input type="button" className="box" onClick={isParkingSelected}/>);
 	}
-	return(<div style={{backgroundColor:'red'}}>
+	return(<div style={{backgroundColor:'red', marginTop:'-40px'}}>
 		<h1 className="pageHeader" style={{color:'white'}}>Parking Area</h1>
 		<div className="parkingArea" >
 			{parkingBox}
 		</div>
-		<Login/>
 	</div>)	
 }
 export default Parking;
