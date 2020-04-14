@@ -6,27 +6,36 @@ class Registeration extends React.Component
 	constructor(props)
 	{
 		super(props);
-		this.state={userName:"", password:"", carName:"", carNumber:"", confirmPwd:"",details:[]};
+		this.state={userName:"", password:"", carName:"", carNumber:"", confirmPwd:"",parkingPos:-1, details:[]};
 		this.isError=false;
 		this.setValue = this.setValue.bind(this);
 		this.submitRegister = this.submitRegister.bind(this);
 	}
 
 	submitRegister(){
+		let custDetails = [];
 		const {userName, password, confirmPwd, carName, carNumber, details} = this.state;
 		const isUnameErr = validateUserOrCarName(userName);
 		const isPwdErr = (valiadtePassword(password) && validatePasswordMatching(password, confirmPwd));
 		const isCarNumErr = validateCarNumber(carNumber);
 		const isCarNameErr = validateUserOrCarName(carName);
-		console.log("--isUnameErr--"+isUnameErr);
-		console.log("==isCarNameErr=="+isCarNameErr);
 
 		if(!(isUnameErr || isPwdErr || isCarNumErr || isCarNameErr)) {
-			console.log("==sr=name="+this.state.userName+"=pwd="+password);
-			console.log("==sr=name="+this.state.carName+"=pwd="+carNumber);
-			let obj = {userName: userName, password: password, carName: carName, carNumber: carNumber};
-			details.push(obj);
-			localStorage.setItem('regDetails',JSON.stringify(details));
+			let obj = {userName: userName, password: password, carName: carName, carNumber: carNumber, parkingPos:-1};
+
+			var regiteredDetails = localStorage.getItem("regDetails");
+			if(regiteredDetails !== null) {
+				 custDetails = JSON.parse(regiteredDetails); 
+				console.log("*******len*****"+custDetails.length);
+				if (custDetails.length > 0 )
+				{
+					custDetails.push(obj);
+				}
+			} else {
+				custDetails.push(obj);
+			}
+
+			localStorage.setItem('regDetails',JSON.stringify(custDetails));
 			alert("Registeration SUCCESS..Please Login to Continue");
 			this.props.history.push("/Login");
 		} else {
@@ -36,7 +45,6 @@ class Registeration extends React.Component
 	}
 	
 	setValue(e){
-    	console.log("---name--"+e.target.name+"--val--"+e.target.value);
     	this.setState({[e.target.name]:e.target.value});
   	}
   

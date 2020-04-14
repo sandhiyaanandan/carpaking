@@ -1,43 +1,83 @@
 import React from 'react';
 import {TOTAL_AVAILABLE_SPACE} from './constants';
-import Login from './Login';
+import {useHistory } from "react-router-dom";
 function Parking()
 {
 	let parkingBox = [];
 	let no_available_space = TOTAL_AVAILABLE_SPACE;
-	
-	const isParkingSelected=() => {
+	const history = useHistory();
+	var flag = false;
+
+	const isParkingSelected = (e) => {
+		let alertMsg="";
+		var cUsrDetails =null;
 		let isCarParked = document.activeElement.style;
+		var curUser = localStorage.getItem("currentUser");
+		if(curUser !== null) {
+			cUsrDetails = JSON.parse(curUser); 
+		}
 		if(isCarParked.backgroundColor === "" || isCarParked.backgroundColor === "white") {
 			isCarParked.backgroundColor = "yellow";
+			if(cUsrDetails.length > 0) {
+				cUsrDetails.parkingPos =  e.target.value;
+			}
 			if( no_available_space > 0 ) {
+				alertMsg = "Car IN";
 			} no_available_space--;
 		} else {
 			//Get carnumber from user and check in local storage...if available change color to white
-			var regCarNumber = localStorage.getItem("currentUserCarNumber");
 			var userCarNumber  = prompt("Please enter your carNumber");
-			if ( regCarNumber === userCarNumber )
+			if ( cUsrDetails.carNumber === userCarNumber )
 			{
-				alert("Thank you for using Car Parking..");
+				cUsrDetails.parkingPos = -1;
+				alertMsg = "Car OUT";
 				isCarParked.backgroundColor = "white";
 				if( no_available_space >= 0 ) {
 					no_available_space++;
 				}
 			} else {
-				alert("Try again. Please provide registered carNumber");
-				//this.props.history.push("/Login");
-				document.history.push("/Login");
+				alertMsg = "Try again. Please provide registered carNumber";
+				history.push("/Login");
 			}
 		}
+		alert(alertMsg);
+		var regiteredDetails = localStorage.getItem("regDetails");
+		let custDetails =[];
+		if(regiteredDetails !== null) {
+			 custDetails = JSON.parse(regiteredDetails); 
+			if (custDetails.length > 0 )
+			{
+				custDetails.push(cUsrDetails);
+			} else {
+				custDetails.push(cUsrDetails);
+			}
+		}
+
+		localStorage.setItem('regDetails', JSON.stringify(custDetails));
 		localStorage.setItem('no_available_space', no_available_space);
-		document.history.push("/Login");
 	}
 	
-	for( let parkingSpace = 0; parkingSpace < TOTAL_AVAILABLE_SPACE; parkingSpace++)
+	const allUser = localStorage.getItem("regDetails");
+	if(allUser !== null) {
+		var cDetails = JSON.parse(allUser); 
+		if (cDetails.length > 0 )
+		{
+			flag = true; 
+		} else {
+			 flag = false;
+		}
+	}
+	for( let pos = 0; pos < TOTAL_AVAILABLE_SPACE; pos++)
 	{
-		if( parkingSpace % 5 === 0 )
+		if( pos % 5 === 0 )
 			parkingBox.push(<br/>);
-		parkingBox.push(<input type="button" className="box" onClick={isParkingSelected}/>);
+		if((flag)&& (cDetails.find((detail) => {return detail.parkingPos === pos;})))
+		{
+			parkingBox.push(<input type="button" style={{backgroundColor:'yellow'}} value={pos} className="box" onClick={isParkingSelected}/>);
+		}
+		else {
+			parkingBox.push(<input type="button" value={pos} className="box" onClick={isParkingSelected}/>);
+		}
 	}
 
 	return(<div style={{backgroundColor:'red'}}>

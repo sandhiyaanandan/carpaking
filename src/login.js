@@ -10,19 +10,17 @@ class Login extends React.Component
 		super(props);
     	this.state={userName:"", password:""};
     	this.status={isLogin: false};
-		this.loginUserDetails = this.loginUserDetails.bind(this);
+		this.submitUserDetails = this.submitUserDetails.bind(this);
 		this.updateLoginName = this.updateLoginName.bind(this);
 		this.updatePassword = this.updatePassword.bind(this);
 		this.goToRegistertaion = this.goToRegistertaion.bind(this);
 	}	
 
 	verifyLoginDetails = (personDetail) => {
-		console.log("===verifyLoginDetails====");
-		//const {userName, password} = this.state;
 		this.status.isLogin = false; //by default isLogin false..
 		if(personDetail.userName === this.state.userName && personDetail.password === this.state.password)
 		{
-			localStorage.setItem("currentUserCarNumber", personDetail.carNumber);
+			localStorage.setItem("currentUser", JSON.stringify(personDetail));
 			this.status.isLogin = true;
 		}
 	}
@@ -36,7 +34,6 @@ class Login extends React.Component
 				custDetails.find(this.verifyLoginDetails);
 			}
 		}
-		console.log("-----loginStatus----"+this.status.isLogin);
 		if(!this.status.isLogin){
 			alert("Invalid username or password");
 			document.getElementById("loginForm").reset();
@@ -47,7 +44,7 @@ class Login extends React.Component
 		}	
 	}
 
-	loginUserDetails(e) {
+	submitUserDetails(e) {
 		if(this.isLoginStatus())
 		{
 			var spaceAvailable = localStorage.getItem('no_available_space');
@@ -83,7 +80,7 @@ class Login extends React.Component
 					<form id="loginForm">
 						<Input type="text" onChange={this.updateLoginName} placeholder="Enter Login Name"/>
 						<Input type="password" onChange={this.updatePassword} placeholder="Enter Password"/>
-						<Input type="button" className="submitButton" value="submit" onClick={this.loginUserDetails}/>
+						<Input type="button" className="submitButton" value="submit" onClick={this.submitUserDetails}/>
 					</form>
 				</div>
 				<p style={{color:'white'}}>New User? <span style={{textDecoration: 'underline'}} onClick={this.goToRegistertaion}>Registeration</span></p>
