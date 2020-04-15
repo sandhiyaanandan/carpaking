@@ -15,16 +15,15 @@ class Login extends React.Component
 		this.updatePassword = this.updatePassword.bind(this);
 		this.goToRegistertaion = this.goToRegistertaion.bind(this);
 	}	
-
-	verifyLoginDetails = (personDetail) => {
-		this.status.isLogin = false; //by default isLogin false..
-		if(personDetail.userName === this.state.userName && personDetail.password === this.state.password)
+	verifyLoginDetails = (personDetails) =>
+	{	
+		if(personDetails.userName === this.state.userName && personDetails.password === this.state.password)
 		{
-			localStorage.setItem("currentUser", JSON.stringify(personDetail));
-			this.status.isLogin = true;
+			localStorage.setItem("currentUser", JSON.stringify(personDetails));
+			this.status.isLogin = true;	
 		}
 	}
-	
+
 	isLoginStatus= ()=> {
 		var regiteredDetails = localStorage.getItem("regDetails");
 		if(regiteredDetails !== null) {
@@ -45,6 +44,7 @@ class Login extends React.Component
 	}
 
 	submitUserDetails(e) {
+		this.status.isLogin = false; //by default isLogin false..
 		if(this.isLoginStatus())
 		{
 			var spaceAvailable = localStorage.getItem('no_available_space');

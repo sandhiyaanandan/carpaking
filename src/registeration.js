@@ -6,7 +6,7 @@ class Registeration extends React.Component
 	constructor(props)
 	{
 		super(props);
-		this.state={userName:"", password:"", carName:"", carNumber:"", confirmPwd:"",parkingPos:-1, details:[]};
+		this.state={userName:"", password:"", carName:"", carNumber:"", confirmPwd:"",parkingPos:-1};
 		this.isError=false;
 		this.setValue = this.setValue.bind(this);
 		this.submitRegister = this.submitRegister.bind(this);
@@ -14,7 +14,7 @@ class Registeration extends React.Component
 
 	submitRegister(){
 		let custDetails = [];
-		const {userName, password, confirmPwd, carName, carNumber, details} = this.state;
+		const {userName, password, confirmPwd, carName, carNumber} = this.state;
 		const isUnameErr = validateUserOrCarName(userName);
 		const isPwdErr = (valiadtePassword(password) && validatePasswordMatching(password, confirmPwd));
 		const isCarNumErr = validateCarNumber(carNumber);
@@ -26,7 +26,6 @@ class Registeration extends React.Component
 			var regiteredDetails = localStorage.getItem("regDetails");
 			if(regiteredDetails !== null) {
 				 custDetails = JSON.parse(regiteredDetails); 
-				console.log("*******len*****"+custDetails.length);
 				if (custDetails.length > 0 )
 				{
 					custDetails.push(obj);

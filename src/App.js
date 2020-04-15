@@ -1,7 +1,7 @@
 import React from 'react';
-import Registeration from './Registeration';
+import Registeration from './registeration';
 import Parking from './Parking';
-import Login from './Login';
+import Login from './login';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 
