@@ -10,8 +10,7 @@ function App() {
     <div>
     	<h1 className="header">Car Parking</h1>
       <Router>
-       <div>
-       		
+       <div>	
         	<Switch>
               <Route exact path="/" component={Login}/>
           		<Route path='/Login' component={Login}></Route>
