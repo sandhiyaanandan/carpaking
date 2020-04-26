@@ -38,26 +38,26 @@ describe(' Register Name', () => {
 
 describe('Register Password', () => {
  it('should respond to change event and change the state of the Password', () => {
-   wrapper.find('[name="password"]').simulate('change', {target: {value: 'admin'}});
-   expect(wrapper.state('password')).toEqual('admin');
+   wrapper.find('[name="password"]').simulate('change', {target: {name: 'password', value: 'Sandy12'}});
+   expect(wrapper.state('password')).toEqual('Sandy12');
   })
 });
 describe('Register Confirm Password', () => {
  it('should respond to change event and change the state of the Confirm Password', () => {
-   wrapper.find('[name="confirmPwd"]').simulate('change', {target: {value: 'admin'}});
-   expect(wrapper.state('password')).toEqual('admin');
+   wrapper.find('[name="confirmPwd"]').simulate('change', {target: {name: 'confirmPwd', value: 'Sandy12'}});
+   expect(wrapper.state('confirmPwd')).toEqual('Sandy12');
   })
 });
 describe('Register CarName', () => {
  it('should respond to change event and change the state of the Carname', () => {
-   wrapper.find('[name="carName"]').simulate('change', {target: {value: 'Toyota'}});
+   wrapper.find('[name="carName"]').simulate('change', {target: {name: 'carName', value: 'Toyota'}});
    expect(wrapper.state('carName')).toEqual('Toyota');
   })
 });
 
 describe('Register CarNumber', () => {
  it('should respond to change event and change the state of the Carnumber', () => {
-   wrapper.find('[name="carNumber"]').simulate('change', {target: {value: 'TN78JK8976'}});
+   wrapper.find('[name="carNumber"]').simulate('change', {target: {name: 'carNumber',value: 'TN78JK8976'}});
    expect(wrapper.state('carNumber')).toEqual('TN78JK8976');
   })
 });

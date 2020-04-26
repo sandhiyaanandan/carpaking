@@ -10,7 +10,6 @@ class Registeration extends React.Component
 		this.isError=false;
 		this.setValue = this.setValue.bind(this);
 		this.submitRegister = this.submitRegister.bind(this);
-		this.setName = this.setName.bind(this);
 	}
 
 	submitRegister(){
@@ -47,10 +46,7 @@ class Registeration extends React.Component
 	setValue(e){
     	this.setState({[e.target.name]:e.target.value});
   	}
-  
-  setName(e){
-  	this.setState({userName:e.target.value});
-  }
+
 	render()
 	{
 		return(<Div>
@@ -58,12 +54,12 @@ class Registeration extends React.Component
 				<div className="loginBox" style={{backgroundColor:'blue', border: '10px solid blue'}}>
 					<h2 className="pageHeader">Register</h2>
 					<form id="regForm" style={{marginTop:'10%'}}>
-						<div onChange={this.setValue}>
-						<Input type="text"  onChange={this.setName} name = "userName" placeholder="Enter User Name"/>
-						<Input type="password" name="password" placeholder="Enter Password"/>
-						<Input type="password" name="confirmPwd" placeholder="Enter Confirm Password"/>
-						<Input type="text" name="carName"  placeholder="Enter Carname"/>
-						<Input type="text" name="carNumber" placeholder="Enter CarNumber"/>
+						<div>
+						<Input type="text" onChange={this.setValue} name = "userName" placeholder="Enter User Name"/>
+						<Input type="password" onChange={this.setValue} name="password" placeholder="Enter Password"/>
+						<Input type="password" onChange={this.setValue} name="confirmPwd" placeholder="Enter Confirm Password"/>
+						<Input type="text" onChange={this.setValue} name="carName"  placeholder="Enter Carname"/>
+						<Input type="text" onChange={this.setValue} name="carNumber" placeholder="Enter CarNumber"/>
 						</div>
 						<Input type="button" className="submitButton" style={{marginTop:'20%'}} value="Register" onClick={this.submitRegister}/>
 					</form>
