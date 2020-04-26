@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login should render the Login Component correctly 1`] = `
+<styled.div>
+  <div
+    data-test="login"
+    style={
+      Object {
+        "backgroundColor": "red",
+        "height": "370px",
+      }
+    }
+  >
+    <div
+      className="loginBox"
+    >
+      <h2
+        className="pageHeader"
+      >
+        Login
+      </h2>
+      <form
+        id="loginForm"
+      >
+        <styled.input
+          id="name"
+          onChange={[Function]}
+          placeholder="Enter Login Name"
+          type="text"
+        />
+        <styled.input
+          id="password"
+          onChange={[Function]}
+          placeholder="Enter Password"
+          type="password"
+        />
+        <styled.input
+          className="submitButton"
+          onClick={[Function]}
+          type="button"
+          value="submit"
+        />
+      </form>
+    </div>
+    <p
+      style={
+        Object {
+          "color": "white",
+        }
+      }
+    >
+      New User? 
+      <span
+        onClick={[Function]}
+        style={
+          Object {
+            "textDecoration": "underline",
+          }
+        }
+      >
+        Registeration
+      </span>
+    </p>
+  </div>
+</styled.div>
+`;

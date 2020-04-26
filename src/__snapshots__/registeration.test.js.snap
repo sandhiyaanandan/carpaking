@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Registeration should render the Registeration Component correctly 1`] = `
+<styled.div>
+  <div
+    style={
+      Object {
+        "backgroundColor": "green",
+      }
+    }
+  >
+    <div
+      className="loginBox"
+      style={
+        Object {
+          "backgroundColor": "blue",
+          "border": "10px solid blue",
+        }
+      }
+    >
+      <h2
+        className="pageHeader"
+      >
+        Register
+      </h2>
+      <form
+        id="regForm"
+        style={
+          Object {
+            "marginTop": "10%",
+          }
+        }
+      >
+        <div
+          onChange={[Function]}
+        >
+          <styled.input
+            id="userName"
+            placeholder="Enter User Name"
+            type="text"
+          />
+          <styled.input
+            id="password"
+            placeholder="Enter Password"
+            type="password"
+          />
+          <styled.input
+            id="confirmPwd"
+            placeholder="Enter Confirm Password"
+            type="password"
+          />
+          <styled.input
+            id="carName"
+            placeholder="Enter Carname"
+            type="text"
+          />
+          <styled.input
+            id="carNumber"
+            placeholder="Enter CarNumber"
+            type="text"
+          />
+        </div>
+        <styled.input
+          className="submitButton"
+          onClick={[Function]}
+          style={
+            Object {
+              "marginTop": "20%",
+            }
+          }
+          type="button"
+          value="Register"
+        />
+      </form>
+    </div>
+  </div>
+</styled.div>
+`;

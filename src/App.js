@@ -7,7 +7,7 @@ import './App.css';
 
 function App() {
   return (
-    <div>
+    <div data-test='Parking-Header'>
     	<h1 className="header">Car Parking</h1>
       <Router>
        <div>	

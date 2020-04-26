@@ -74,12 +74,12 @@ class Login extends React.Component
 	render()
 	{
 		return(<Div>
-			<div style={{backgroundColor:'red', height: '370px'}}>
+			<div style={{backgroundColor:'red', height: '370px'}} data-test="login">
 				<div className="loginBox">
 					<h2 className="pageHeader">Login</h2>
 					<form id="loginForm">
-						<Input type="text" onChange={this.updateLoginName} placeholder="Enter Login Name"/>
-						<Input type="password" onChange={this.updatePassword} placeholder="Enter Password"/>
+						<Input type="text" id="name" onChange={this.updateLoginName} placeholder="Enter Login Name"/>
+						<Input id="password" type="password" onChange={this.updatePassword} placeholder="Enter Password"/>
 						<Input type="button" className="submitButton" value="submit" onClick={this.submitUserDetails}/>
 					</form>
 				</div>
