@@ -1,6 +1,6 @@
 import React from 'react';
 import Registeration from './registeration';
-import Parking from './parking';
+import Parking from './Parking';
 import Login from './login';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';

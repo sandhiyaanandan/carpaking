@@ -29,26 +29,50 @@ it('should render Login component correctly', ()=>{
    expect(wrapper.find('form#loginForm').exists()).toBe(true);
  })
 
-describe('Login input', () => { 
- it('should respond to change event and change the state of the Login name', () => {
-   wrapper.find('#name').simulate('change', {target: {value: 'user'}});
-   expect(wrapper.state('userName')).toEqual('user');
-  })
+ describe('Negative Login Test Cases. New user', () => {
+  describe('Login input', () => { 
+    it('should respond to change event and change the state of the Login name', () => {
+      wrapper.find('#name').simulate('change', {target: {value: 'user'}});
+      expect(wrapper.state('userName')).toEqual('user');
+    })
+  });
+
+  describe('Password input', () => {
+    it('should respond to change event and change the state of the Password', () => {
+      wrapper.find('#password').simulate('change', {target: {value: 'admin'}});
+      expect(wrapper.state('password')).toEqual('admin');
+     })
+  });
+  describe('Submit details', () => {
+    it('should call handleFormSubmit when form submitted via button', () => {
+      window.alert = jest.fn();
+      wrapper.find('form#loginForm').find('[className="submitButton"]').simulate('click');
+      window.alert.mockClear();
+    }) 
+  });
 });
+ describe('Positive Login Test Cases.Existing User', () => {
+  describe('Login input', () => { 
+    it('should respond to change event and change the state of the Login name', () => {
+      wrapper.find('#name').simulate('change', {target: {value: 'Geetha'}});
+      expect(wrapper.state('userName')).toEqual('Geetha');
+    })
+  });
 
-describe('Password input', () => {
- it('should respond to change event and change the state of the Password', () => {
-   wrapper.find('#password').simulate('change', {target: {value: 'admin'}});
-   expect(wrapper.state('password')).toEqual('admin');
-  })
-
-});
-
-describe('Submit details', () => {
+  describe('Password input', () => {
+    it('should respond to change event and change the state of the Password', () => {
+      wrapper.find('#password').simulate('change', {target: {value: 'Geetha123'}});
+      expect(wrapper.state('password')).toEqual('Geetha123');
+     })
+  });
+  describe('Submit details', () => {
   it('should call handleFormSubmit when form submitted via button', () => {
     window.alert = jest.fn();
     wrapper.find('form#loginForm').find('[className="submitButton"]').simulate('click');
     window.alert.mockClear();
     }) 
 });
+});
+
+
 });
