@@ -31,7 +31,6 @@
 		} else {
 			isError=false; 
 		}
-		console.log("----vupwd---"+isError);
 	}
 
 	export function validatePasswordMatching(password, confirmPwd)
