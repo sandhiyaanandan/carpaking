@@ -44,25 +44,11 @@ describe('Password input', () => {
 
 });
 
-/*describe('Submit details', () => {
-
+describe('Submit details', () => {
   it('should call handleFormSubmit when form submitted via button', () => {
     window.alert = jest.fn();
-   
-    //const fakeEvent = () => { return true; };
-    //jest.clearAllMocks();
     wrapper.find('form#loginForm').find('[className="submitButton"]').simulate('click');
-     wrapper.instance().isLogin = false;
-    console.log("-----isLogin---"+wrapper.instance().isLogin);
-    const spy =  async () => {
-      const data = await jest.spyOn(wrapper.instance(), 'isLoginStatus');
-      return data;
-    }
-    console.log("*******dta****"+spy);
-  
     window.alert.mockClear();
     }) 
 });
-*/
-
 });

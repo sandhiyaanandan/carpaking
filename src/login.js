@@ -35,8 +35,11 @@ class Login extends React.Component
 		}
 		if(!this.status.isLogin){
 			alert("Invalid username or password");
-			document.getElementById("loginForm").reset();
-			return false;
+			const loginElem = document.getElementById("loginForm");
+			if( loginElem !== 'undefined' && loginElem !== null) {
+				loginElem.reset();
+				return false;
+			}
 		} else {
 			alert("Login SUCCESS");
 			return true;

@@ -92,7 +92,7 @@ function Parking()
 		}		
 	}
 
-	return(<div style={{backgroundColor:'red'}}>
+	return(<div style={{backgroundColor:'red'}} data-test="Parking-Page-Header">
 		<h1 className="pageHeader" style={{color:'white'}}>Parking Area</h1>
 		<div className="parkingArea" >
 			{parkingBox}

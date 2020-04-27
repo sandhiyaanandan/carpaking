@@ -3,6 +3,7 @@
 exports[`Registeration should render the Registeration Component correctly 1`] = `
 <styled.div>
   <div
+    data-test="registeration"
     style={
       Object {
         "backgroundColor": "green",
@@ -31,31 +32,34 @@ exports[`Registeration should render the Registeration Component correctly 1`] =
           }
         }
       >
-        <div
-          onChange={[Function]}
-        >
+        <div>
           <styled.input
-            id="userName"
+            name="userName"
+            onChange={[Function]}
             placeholder="Enter User Name"
             type="text"
           />
           <styled.input
-            id="password"
+            name="password"
+            onChange={[Function]}
             placeholder="Enter Password"
             type="password"
           />
           <styled.input
-            id="confirmPwd"
+            name="confirmPwd"
+            onChange={[Function]}
             placeholder="Enter Confirm Password"
             type="password"
           />
           <styled.input
-            id="carName"
+            name="carName"
+            onChange={[Function]}
             placeholder="Enter Carname"
             type="text"
           />
           <styled.input
-            id="carNumber"
+            name="carNumber"
+            onChange={[Function]}
             placeholder="Enter CarNumber"
             type="text"
           />

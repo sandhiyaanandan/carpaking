@@ -62,4 +62,12 @@ describe('Register CarNumber', () => {
   })
 });
 
+describe('Register details', () => {
+  it('should call Register details when form submitted via button', () => {
+    window.alert = jest.fn();
+    wrapper.find('form#regForm').find('[className="submitButton"]').simulate('click');
+    window.alert.mockClear();
+    }) 
+});
+
 });

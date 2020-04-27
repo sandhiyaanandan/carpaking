@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Parking should render the Parking Component correctly 1`] = `
+<div
+  data-test="Parking-Page-Header"
+  style={
+    Object {
+      "backgroundColor": "red",
+    }
+  }
+>
+  <h1
+    className="pageHeader"
+    style={
+      Object {
+        "color": "white",
+      }
+    }
+  >
+    Parking Area
+  </h1>
+  <div
+    className="parkingArea"
+  >
+    <br />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={0}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={1}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={2}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={3}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={4}
+    />
+    <br />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={5}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={6}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={7}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={8}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={9}
+    />
+    <br />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={10}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={11}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={12}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={13}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={14}
+    />
+    <br />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={15}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={16}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={17}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={18}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={19}
+    />
+    <br />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={20}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={21}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={22}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={23}
+    />
+    <input
+      className="box"
+      onClick={[Function]}
+      type="button"
+      value={24}
+    />
+  </div>
+</div>
+`;
